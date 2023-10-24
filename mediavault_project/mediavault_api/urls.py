@@ -6,10 +6,8 @@ urlpatterns = [
     path('band/<int:pk>/', views.BandDetail.as_view()),
     path('songs/', views.SongList.as_view()),
     path('song/<int:pk>/', views.SongDetail.as_view()),
-    path('albums/albumreviews/', views.AlbumList.as_view()),
+    path('albums/', views.AlbumList.as_view()),
     path('album/<int:pk>/', views.AlbumDetail.as_view()),
     path('albumreviews/', views.AlbumReviewList.as_view()),
     path('albumreview/<int:pk>/', views.AlbumReviewDetail.as_view()),
-    path('albumreviewlike/', views.AlbumReviewLikeList.as_view()),
-    path('albumreviewlike/<int:pk>/', views.AlbumReviewDetail.as_view()),
 ]

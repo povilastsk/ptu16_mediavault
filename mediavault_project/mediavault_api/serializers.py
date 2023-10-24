@@ -26,13 +26,4 @@ class AlbumReviewSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = models.AlbumReview
-        fields = ['username', 'user_id' 'album', 'content', 'score']
-
-class AlbumReviewLikeSerializer(serializers.ModelSerializer):
-    username = serializers.ReadOnlyField(source='user.username')
-    user_id = serializers.ReadOnlyField(source='user.id')
-    post = serializers.ReadOnlyField(source='albumreview.id')
-
-    class Meta:
-        model = models.AlbumReviewLike
-        fields = ['username', 'user_id' 'albumreview']
+        fields = ['username', 'user_id', 'post', 'album', 'content', 'score']

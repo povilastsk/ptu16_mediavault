@@ -142,38 +142,3 @@ class AlbumReviewDetail(generics.RetrieveUpdateDestroyAPIView):
             return self.update(self.request, *args, **kwargs)
         else:
             raise ValidationError(_('You can only update your own reviews'))
-
-
-class AlbumReviewLikeList(generics.RetrieveUpdateDestroyAPIView):
-    queryset = models.AlbumReviewLike.objects.all()
-    serializer_class = serializers.AlbumReviewLikeSerializer
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
-
-    def perform_create(self, serializer):
-        serializer.save(user=self.request.user)
-
-
-class AlbumReviewLikeDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = models.AlbumReviewLike.objects.all()
-    serializer_class = serializers.AlbumReviewLikeSerializer
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
-
-    def delete(self, *args, **kwargs):
-        post = models.AlbumReviewLike.objects.filter(
-            pk=kwargs['pk'],
-            user=self.request.user,
-        )
-        if post.exists():
-            return self.destroy(self.request, *args, **kwargs)
-        else:
-            raise ValidationError(_('You can only delete your own reviews'))
-
-    def put(self, *args, **kwargs):
-        post = models.AlbumReviewLike.objects.filter(
-            pk=kwargs['pk'],
-            user=self.request.user,
-        )
-        if post.exists():
-            return self.update(self.request, *args, **kwargs)
-        else:
-            raise ValidationError(_('You can only update your own reviews'))
