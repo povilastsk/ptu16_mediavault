@@ -1,3 +1,7 @@
-from django.shortcuts import render
+from rest_framework import generics
+from . import models, serializers
 
-# Create your views here.
+
+class BandList(generics.ListAPIView):
+    queryset = models.Band.objects.all()
+    serializer_class = serializers.BandSerializer
