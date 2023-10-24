@@ -43,16 +43,6 @@ class Band(models.Model):
 
 #         return f"{_(Review for)} {self.album} {_(by)} {self.user}"
 
-   
-# class AlbumReviewComment(models.Model):
-#     user = models.ForeignKey(User, verbose_name=_("user"), on_delete=models.CASCADE)
-#     albumreview = models.ForeignKey(AlbumReview, verbose_name=_("albumreview"), on_delete=models.CASCADE)
-#     content = models.TextField(_("content"), max_length=500)
-
-#     def __str__(self) -> str:
-
-#         return super().__str__()
-
  
 # class AlbumReviewLike(models.Model):
 #     user = models.ForeignKey(User, verbose_name=_("user"), on_delete=models.CASCADE)
